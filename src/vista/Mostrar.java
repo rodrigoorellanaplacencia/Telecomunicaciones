@@ -5,9 +5,14 @@
  */
 package vista;
 
+import controlador.cListar;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import modelo.Venta;
+
 /**
  *
- * @author LEARNING CENTER
+ * @author pase
  */
 public class Mostrar extends javax.swing.JFrame {
 
@@ -27,23 +32,144 @@ public class Mostrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelListar = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        modelo = new javax.swing.JTable();
+        btnMostrar = new javax.swing.JButton();
+        lblTitulo5 = new javax.swing.JLabel();
+        lblTitulo3 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelListar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelListar.setPreferredSize(new java.awt.Dimension(450, 450));
+
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        modelo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(modelo);
+
+        btnMostrar.setText("Mostrar");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+
+        lblTitulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo5.setText("Detalle de venta");
+
+        lblTitulo3.setText("Telecomunicaciones");
+
+        javax.swing.GroupLayout panelListarLayout = new javax.swing.GroupLayout(panelListar);
+        panelListar.setLayout(panelListarLayout);
+        panelListarLayout.setHorizontalGroup(
+            panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                    .addComponent(lblTitulo5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelListarLayout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(btnMostrar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitulo3)
+                .addGap(135, 135, 135))
+        );
+        panelListarLayout.setVerticalGroup(
+            panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitulo3)
+                .addGap(27, 27, 27)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnMostrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTitulo5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelListar, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelListar, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+
+        DefaultTableModel listadoDetalle = new DefaultTableModel();
+        modelo.setModel(listadoDetalle);
+        listadoDetalle.addColumn("Id. de venta");
+        listadoDetalle.addColumn("Fecha de contratación");
+        listadoDetalle.addColumn("Fecha de término (opcional)");
+        listadoDetalle.addColumn("Fecha de término de contrato");
+        listadoDetalle.addColumn("Id. de tipo de venta");
+        listadoDetalle.addColumn("Valor de la venta");
+        listadoDetalle.addColumn("RUT");
+
+        Object[] fila = new Object[7];
+        cListar list = new cListar();
+        ArrayList<Venta>  listado = list.listarVentas();
+
+        for(int x =0; x < listado.size(); ++x){
+            fila[0] = listado.get(x).getId();
+            fila[1] = listado.get(x).getFechaContratacion();
+            fila[2] = listado.get(x).getFechaTerminoOp();
+            fila[3] = listado.get(x).getFechaTerminoCon();
+            fila[4] = listado.get(x).getTipoVenta();
+            fila[5] = listado.get(x).getValorVenta();
+            fila[6] = listado.get(x).getRut();
+            listadoDetalle.addRow(fila);
+        }
+
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnMostrar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblTitulo3;
+    private javax.swing.JLabel lblTitulo5;
+    public javax.swing.JTable modelo;
+    public javax.swing.JPanel panelListar;
     // End of variables declaration//GEN-END:variables
 }

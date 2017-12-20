@@ -15,19 +15,19 @@ public class Venta {
     private String fechaTerminoOp;
     private String fechaTerminoCon;
     private int tipoVenta;
-    private int valorFecha;
+    private int valorVenta;
     private String rut;
 
     public Venta() {
     }
 
-    public Venta(int id, String fechaContratacion, String fechaTerminoOp, String fechaTerminoCon, int tipoVenta, int valorFecha, String rut) {
+    public Venta(int id, String fechaContratacion, String fechaTerminoOp, String fechaTerminoCon, int tipoVenta, int valorVenta, String rut) {
         this.id = id;
         this.fechaContratacion = fechaContratacion;
         this.fechaTerminoOp = fechaTerminoOp;
         this.fechaTerminoCon = fechaTerminoCon;
         this.tipoVenta = tipoVenta;
-        this.valorFecha = valorFecha;
+        this.valorVenta = valorVenta;
         this.rut = rut;
     }
 
@@ -71,12 +71,12 @@ public class Venta {
         this.tipoVenta = tipoVenta;
     }
 
-    public int getValorFecha() {
-        return valorFecha;
+    public int getValorVenta() {
+        return valorVenta;
     }
 
-    public void setValorFecha(int valorFecha) {
-        this.valorFecha = valorFecha;
+    public void setValorVenta(int valorVenta) {
+        this.valorVenta = valorVenta;
     }
 
     public String getRut() {
@@ -89,7 +89,7 @@ public class Venta {
 
     @Override
     public String toString() {
-        return "Venta{" + "id=" + id + ", fechaContratacion=" + fechaContratacion + ", fechaTerminoOp=" + fechaTerminoOp + ", fechaTerminoCon=" + fechaTerminoCon + ", tipoVenta=" + tipoVenta + ", valorFecha=" + valorFecha + ", rut=" + rut + '}';
+        return "Venta{" + "id=" + id + ", fechaContratacion=" + fechaContratacion + ", fechaTerminoOp=" + fechaTerminoOp + ", fechaTerminoCon=" + fechaTerminoCon + ", tipoVenta=" + tipoVenta + ", valorVenta=" + valorVenta + ", rut=" + rut + '}';
     }
     
     
