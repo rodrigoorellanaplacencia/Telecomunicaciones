@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author LEARNING CENTER
+ * @author pase
  */
 public class Principal extends javax.swing.JFrame {
 
@@ -16,6 +16,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        
+        Eliminar eliminar = new Eliminar();
+        
+        Modificar modificar = new Modificar();
+        
     }
 
     /**
@@ -27,7 +32,63 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenAgregar3 = new javax.swing.JMenuItem();
+        jMenListar = new javax.swing.JMenuItem();
+        jMenuEliminar = new javax.swing.JMenuItem();
+        JMenuModificar = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        jMenuSalir = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jMenu3.setText("Venta");
+
+        jMenAgregar3.setText("Agregar");
+        jMenAgregar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenAgregar3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenAgregar3);
+
+        jMenListar.setText("Listar");
+        jMenListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenListarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenListar);
+
+        jMenuEliminar.setText("Eliminar");
+        jMenuEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuEliminarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuEliminar);
+
+        JMenuModificar.setText("Modificar");
+        JMenuModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMenuModificarActionPerformed(evt);
+            }
+        });
+        jMenu3.add(JMenuModificar);
+        jMenu3.add(jSeparator5);
+
+        jMenuSalir.setText("Salir");
+        jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSalirActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuSalir);
+
+        jMenuBar4.add(jMenu3);
+
+        setJMenuBar(jMenuBar4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -37,11 +98,45 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenAgregar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenAgregar3ActionPerformed
+        // TODO add your handling code here:
+        Agregar agregar = new Agregar();
+        agregar.setVisible(true);
+        
+    }//GEN-LAST:event_jMenAgregar3ActionPerformed
+
+    private void jMenListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenListarActionPerformed
+        // TODO add your handling code here:
+        Mostrar mostrar = new Mostrar();
+        mostrar.setVisible(true);
+        
+
+    }//GEN-LAST:event_jMenListarActionPerformed
+
+    private void jMenuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEliminarActionPerformed
+        // TODO add your handling code here:
+        Eliminar eliminar = new Eliminar();
+        eliminar.setVisible(true);
+    }//GEN-LAST:event_jMenuEliminarActionPerformed
+
+    private void JMenuModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuModificarActionPerformed
+        // TODO add your handling code here:
+       Modificar modificar = new Modificar();
+       modificar.setVisible(true);
+        
+        
+    }//GEN-LAST:event_JMenuModificarActionPerformed
+
+    private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jMenuSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +174,22 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JMenuModificar;
+    public javax.swing.JMenuItem jMenAgregar;
+    public javax.swing.JMenuItem jMenAgregar1;
+    public javax.swing.JMenuItem jMenAgregar2;
+    public javax.swing.JMenuItem jMenAgregar3;
+    public javax.swing.JMenuItem jMenListar;
+    private javax.swing.JMenu jMenu;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar4;
+    public javax.swing.JMenuItem jMenuEliminar;
+    public javax.swing.JMenuItem jMenuSalir;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     // End of variables declaration//GEN-END:variables
 }

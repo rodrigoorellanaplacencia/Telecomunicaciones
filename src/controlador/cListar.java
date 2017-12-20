@@ -25,16 +25,20 @@ public class cListar {
     
         
         try {
-            String sql="SELECT (V.ID_VENTA, V.FECHA_CONTRATACION, V.FECHA_TERMINO_OPCIONAL, V.FECHA_TERMINO_CONTRATO,\n" +
-"    TV.ID__TIPO, V.VALOR_VENTA, V.RUT) FROM VENTA V JOIN TIPO_VENTA TV";
+            String sql="SELECT (ID_VENTA, FECHA_CONTRATACION, FECHA_TERMINO_OPCIONAL, FECHA_TERMINO_CONTRATO,\n" +
+"    ID_TIPO, VALOR_VENTA, RUT) FROM VENTA";
             PreparedStatement preparedStatement =Conexion.obtenerInstancia().prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery(); 
             lista = new ArrayList();
             while (rs.next()){
                 ventaObjeto = new Venta();
-                ventaObjeto.setId(rs.getInt("V.ID_VENTA"));
-                ventaObjeto.setFechaContratacion(rs.getString("V.FECHA_CONTRATACION"));
-                
+                ventaObjeto.setId(rs.getInt("ID_VENTA"));
+                ventaObjeto.setFechaContratacion(rs.getString("FECHA_CONTRATACION"));
+                ventaObjeto.setFechaTerminoOp(rs.getString("FECHA_TERMINO_OPCIONAL"));
+                ventaObjeto.setFechaTerminoCon(rs.getString("FECHA_TERMINO_CONTRATO"));
+                ventaObjeto.setTipoVenta(rs.getInt("ID_TIPO"));
+                ventaObjeto.setValorVenta(rs.getInt("VALOR_VENTA"));
+                ventaObjeto.setRut(rs.getString("RUT"));
                 
                 lista.add(ventaObjeto);
             }

@@ -147,7 +147,7 @@ public class Mostrar extends javax.swing.JFrame {
 
         Object[] fila = new Object[7];
         cListar list = new cListar();
-        ArrayList<Venta>  listado = list.listarVentas();
+        ArrayList<Venta> listado = list.listarVentas();
 
         for(int x =0; x < listado.size(); ++x){
             fila[0] = listado.get(x).getId();
