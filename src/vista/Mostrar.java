@@ -6,7 +6,10 @@
 package vista;
 
 import controlador.cListar;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Venta;
 
@@ -68,7 +71,7 @@ public class Mostrar extends javax.swing.JFrame {
         });
 
         lblTitulo5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo5.setText("Detalle de venta");
+        lblTitulo5.setText("Todas las ventas realizadas");
 
         lblTitulo3.setText("Telecomunicaciones");
 
@@ -135,16 +138,15 @@ public class Mostrar extends javax.swing.JFrame {
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         // TODO add your handling code here:
 
-        DefaultTableModel listadoDetalle = new DefaultTableModel();
-        modelo.setModel(listadoDetalle);
-        listadoDetalle.addColumn("Id. de venta");
-        listadoDetalle.addColumn("Fecha de contratación");
-        listadoDetalle.addColumn("Fecha de término (opcional)");
-        listadoDetalle.addColumn("Fecha de término de contrato");
-        listadoDetalle.addColumn("Id. de tipo de venta");
-        listadoDetalle.addColumn("Valor de la venta");
-        listadoDetalle.addColumn("RUT");
-
+        DefaultTableModel listadoVenta = new DefaultTableModel();
+        listadoVenta.addColumn("Id. de venta");
+        listadoVenta.addColumn("Fecha de contratación");
+        listadoVenta.addColumn("Fecha de término (opcional)");
+        listadoVenta.addColumn("Fecha de término de contrato");
+        listadoVenta.addColumn("Id. de tipo de venta");
+        listadoVenta.addColumn("Valor de la venta");
+        listadoVenta.addColumn("RUT");
+        modelo.setModel(listadoVenta);
         Object[] fila = new Object[7];
         cListar list = new cListar();
         ArrayList<Venta> listado = list.listarVentas();
@@ -157,8 +159,10 @@ public class Mostrar extends javax.swing.JFrame {
             fila[4] = listado.get(x).getTipoVenta();
             fila[5] = listado.get(x).getValorVenta();
             fila[6] = listado.get(x).getRut();
-            listadoDetalle.addRow(fila);
+            listadoVenta.addRow(fila);
         }
+        modelo.updateUI();
+        JOptionPane.showMessageDialog(null, "Lista mostrada");
 
     }//GEN-LAST:event_btnMostrarActionPerformed
 

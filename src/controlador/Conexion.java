@@ -20,7 +20,7 @@ public class Conexion {
     }
     public static Connection obtenerInstancia(){
         if (connection==null){
-        String url= "jdbc:oracle:thin:@MSP-PM-04-09.aws.smartcloud.cl:1521:xe";
+        String url= "jdbc:oracle:thin:@MSP-PM-04-01.aws.smartcloud.cl:1521:xe";
         String user="usuario05";
         String pass="usuario05";
         System.out.println("Proceso de Coneccion...");
@@ -29,7 +29,6 @@ public class Conexion {
             System.out.println("Base de datos Conectada!!");
         }catch (SQLException e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
         }
         }
         return connection;

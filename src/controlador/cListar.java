@@ -5,10 +5,10 @@
  */
 package controlador;
 
-import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,21 +22,21 @@ public class cListar {
     private ArrayList<Venta> lista;
     private Venta ventaObjeto;
     public ArrayList<Venta> listarVentas() {
-    
-        
+        String sql="SELECT ID_VENTA, FECHA_CONTRATACION, FECHA_TERMINO_OPCIONAL, FECHA_TERMINO_CONTRATO, TIPO_VENTA_ID_TIPO, VALOR_VENTA, RUT FROM VENTA";
+        Statement s;
         try {
-            String sql="SELECT (ID_VENTA, FECHA_CONTRATACION, FECHA_TERMINO_OPCIONAL, FECHA_TERMINO_CONTRATO,\n" +
-"    ID_TIPO, VALOR_VENTA, RUT) FROM VENTA";
-            PreparedStatement preparedStatement =Conexion.obtenerInstancia().prepareStatement(sql);
-            ResultSet rs = preparedStatement.executeQuery(); 
+            
+            s = Conexion.obtenerInstancia().createStatement();
+            System.out.println(" Cargando datos...");
+            ResultSet rs = s.executeQuery(sql); 
             lista = new ArrayList();
+            ventaObjeto = new Venta();
             while (rs.next()){
-                ventaObjeto = new Venta();
                 ventaObjeto.setId(rs.getInt("ID_VENTA"));
                 ventaObjeto.setFechaContratacion(rs.getString("FECHA_CONTRATACION"));
                 ventaObjeto.setFechaTerminoOp(rs.getString("FECHA_TERMINO_OPCIONAL"));
                 ventaObjeto.setFechaTerminoCon(rs.getString("FECHA_TERMINO_CONTRATO"));
-                ventaObjeto.setTipoVenta(rs.getInt("ID_TIPO"));
+                ventaObjeto.setTipoVenta(rs.getInt("TIPO_VENTA_ID_TIPO"));
                 ventaObjeto.setValorVenta(rs.getInt("VALOR_VENTA"));
                 ventaObjeto.setRut(rs.getString("RUT"));
                 

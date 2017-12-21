@@ -146,7 +146,7 @@
         <Component class="javax.swing.JLabel" name="lblTitulo5">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Detalle de venta"/>
+            <Property name="text" type="java.lang.String" value="Todas las ventas realizadas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTitulo3">
